@@ -8,6 +8,11 @@ def extract_data(user_name,user_key,dataset_owner,dataset_name, target_path):
  api = KaggleApi()
  api.authenticate()
  api.dataset_download_files(dataset, path=target_path,unzip=True)
+ for file_name in os.listdir(target_path):
+        if file_name.endswith('.csv'):
+            return file_name
+
+ return None
  
 if __name__ == "__main__":
     user_name ='xiaonany'
